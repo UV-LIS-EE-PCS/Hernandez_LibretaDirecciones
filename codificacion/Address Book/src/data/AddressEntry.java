@@ -1,4 +1,4 @@
-package address.data;
+package data;
 
 public class AddressEntry{
     private String name;
