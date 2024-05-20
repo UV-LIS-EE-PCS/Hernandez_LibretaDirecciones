@@ -1,11 +1,14 @@
 package data;
 import java.util.ArrayList;
+import java.io.*;
+import java.util.Scanner;
 
 public class AddressBook {
     private ArrayList<AddressEntry>  contacts= new ArrayList<>();
+    Scanner scan = new Scanner(System.in);
 
-    public void add(AddressEntry contactEntry){
-        contacts.add(contactEntry);
+    public void add(AddressEntry contact){
+        contacts.add(contact);
         contacts.sort((o1, o2) -> {
             int cmp = o1.getLastname().compareTo(o2.getLastname());
             if (cmp != 0) {
@@ -19,13 +22,13 @@ public class AddressBook {
         contacts.remove(contactEntry);
     }
 
-    public void readFile(String filename){
+    public void addFromFile(File filename){
 
     }
 
     public ArrayList<AddressEntry> Search(String lastname){
         ArrayList<AddressEntry> searchResults = new ArrayList<>();
-        for(int i = 0; i < contacts.size();){
+        for(int i = 0; i < contacts.size();i++){
             AddressEntry contact = contacts.get(i);
             if((contact.getLastname()).startsWith(lastname)){
                 searchResults.add(contact);
@@ -40,7 +43,7 @@ public class AddressBook {
             System.out.println("The address book is empty");
         }else{
             for(AddressEntry contact : contacts){
-                contact.toString();
+                System.out.println(contact.toString());;
             }
         }
     }

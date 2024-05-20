@@ -2,6 +2,10 @@ package address;
 import data.AddressBook;
 import data.AddressEntry;
 import java.util.Scanner;
+
+import javax.swing.JFileChooser;
+
+import java.io.File;
 import java.util.ArrayList;
 
 public class Menu {
@@ -19,6 +23,8 @@ public class Menu {
     }
 
     Scanner scan = new Scanner(System.in);
+    Scanner scanner = new Scanner(System.in);
+
     public void add(){
 
         System.out.println("Enter the name: ");
@@ -61,7 +67,7 @@ public class Menu {
         ArrayList<AddressEntry> searchResults = addressBook.Search(lastname);
 
         for(AddressEntry contact : searchResults){
-            contact.toString();
+            System.out.println(contact.toString());
         }
 
 
@@ -79,22 +85,31 @@ public class Menu {
 
 
         choosenContact--;
-        
         AddressEntry contact = searchResults.get(choosenContact);
-        
         System.out.println("Deleting contact.....");
-
         addressBook.delete(contact);
-
         System.out.println("Contact deleted succesfully!");
     }
 
     public void readFile(){
-        System.out.println("Enter the name of the file: ");
-        String fileName = scan.nextLine();
+        JFileChooser filepath = new JFileChooser();
+        filepath.showOpenDialog(filepath);
+        String path;
 
-        addressBook.readFile(fileName);
+        try {
+            path = filepath.getSelectedFile().getAbsolutePath();
+            if (path.endsWith(".txt")){
+                File textFile = new File(path);
+                addressBook.addFromFile(textFile);
 
+            }else {
+                System.out.println("That not a .txt file");
+
+            }
+        }catch(Exception e){
+            System.out.println("Something has gone wrong!!");
+            
+        }
     }
 
     public void find(){
@@ -104,7 +119,7 @@ public class Menu {
 
         System.out.println(results.size() == 1 ? "Contact Found" : "There were various contacts with the same lastname Showing them all");
         for(AddressEntry contact : results){
-            contact.toString();
+            System.out.println(contact.toString());
         }
     }
 
@@ -123,7 +138,7 @@ public class Menu {
             System.out.println("d) Search Entry");
             System.out.println("e) Show all Entries");
             System.out.println("f) Exit the program");
-            char option = scan.nextLine().charAt(0);
+            char option = scanner.nextLine().charAt(0);
 
             switch (option) {
                 case 'a':
