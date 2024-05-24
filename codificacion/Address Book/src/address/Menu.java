@@ -138,6 +138,7 @@ public class Menu {
             System.out.println("d) Search Entry");
             System.out.println("e) Show all Entries");
             System.out.println("f) Exit the program");
+            System.out.print("Ingrese su opcion: ");
             char option = scanner.nextLine().charAt(0);
 
             switch (option) {

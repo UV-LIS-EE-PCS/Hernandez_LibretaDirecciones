@@ -22,6 +22,17 @@ public class AddressEntry{
 
     }
 
+    public AddressEntry(){
+        this.name = "Jane Doe";
+        this.lastname = "Doe";
+        this.street = "street";
+        this.city = "Uranium City";
+        this.state = "Saskatchewan";
+        this.postalCode = "44555";
+        this.phone = "555-555-555-555";
+        this.email = "ride@theciclonet.com";
+    }
+
     public String getName(){
         return this.name;
     }
@@ -85,6 +96,26 @@ public class AddressEntry{
     public void setEmail(String email) {
         this.email = email;
     }
+
+
+    public boolean isSame(AddressEntry addressEntry){
+        boolean isNameSame =(this.name).equals(addressEntry.getName());
+        boolean isLastnameSame =(this.lastname).equals(addressEntry.getLastname());
+        boolean isStreetSame =(this.street).equals(addressEntry.getStreet());
+        boolean isCitySame =(this.city).equals(addressEntry.getCity());
+        boolean isStateSame =(this.state).equals(addressEntry.getState());
+        boolean isPostalCodeSame =(this.postalCode).equals(addressEntry.getPostalCode());
+        boolean isPhoneSame =(this.phone).equals(addressEntry.getPhone());
+        boolean isEmailSame =(this.email).equals(addressEntry.getEmail());
+
+        if(isNameSame && isLastnameSame && isStreetSame && isCitySame && isStateSame && isPostalCodeSame && isPhoneSame && isEmailSame){
+            return true;
+        } else{
+            return false;
+        } 
+    }
+
+    
 
     @Override
     public String toString(){

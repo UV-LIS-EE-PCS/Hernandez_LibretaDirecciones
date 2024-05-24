@@ -7,8 +7,6 @@ public class AddressBookApplication {
         AddressBook address = new AddressBook();
         Menu menu = new Menu(address);
         menu.displayMenu();
-
-        
     }
    
 }

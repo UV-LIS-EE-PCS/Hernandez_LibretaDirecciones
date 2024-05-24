@@ -8,14 +8,22 @@ public class AddressBook {
     Scanner scan = new Scanner(System.in);
 
     public void add(AddressEntry contact){
-        contacts.add(contact);
-        contacts.sort((o1, o2) -> {
-            int cmp = o1.getLastname().compareTo(o2.getLastname());
-            if (cmp != 0) {
-                return cmp;
+        boolean isEntrySame = false;
+        for(AddressEntry entry : contacts){
+            if(entry.isSame(contact)){
+                isEntrySame = true;
             }
-            return o1.getName().compareTo(o2.getName());
-        });
+        }
+        if (!isEntrySame){
+            contacts.add(contact);
+            contacts.sort((o1, o2) -> {
+                int cmp = o1.getLastname().compareTo(o2.getLastname());
+                if (cmp != 0) {
+                    return cmp;
+                }
+                return o1.getName().compareTo(o2.getName());
+            });
+        }
     }
 
     public void delete(AddressEntry contactEntry){
@@ -23,6 +31,46 @@ public class AddressBook {
     }
 
     public void addFromFile(File filename){
+        try {
+            FileReader fileLines = new FileReader(filename);
+            BufferedReader readerLines = new BufferedReader(fileLines);
+          
+            String entryAtribute = readerLines.readLine();
+          
+            System.out.println();
+
+            String entryAtributes[] = new String[8];
+          
+            int counter = 0;
+            while(entryAtribute != null) {
+                System.out.println(entryAtribute);
+
+                entryAtributes[counter] = entryAtribute;
+
+                if(counter == 7){
+                    AddressEntry contact = new AddressEntry();
+                    contact.setName(entryAtributes[0]);
+                    contact.setLastname(entryAtributes[1]);
+                    contact.setStreet(entryAtributes[2]);
+                    contact.setCity(entryAtributes[3]);
+                    contact.setState(entryAtributes[4]);
+                    contact.setPostalCode(entryAtributes[5]);
+                    contact.setPhone(entryAtributes[6]);
+                    contact.setEmail(entryAtributes[7]);
+
+                    add(contact);
+                }
+
+                entryAtribute = readerLines.readLine();
+                counter++;
+
+            }
+
+            readerLines.close();
+
+          } catch(IOException e) {
+                System.out.println("Unable to read the file");
+          }
 
     }
 
@@ -31,7 +79,7 @@ public class AddressBook {
         for(int i = 0; i < contacts.size();i++){
             AddressEntry contact = contacts.get(i);
             if((contact.getLastname()).startsWith(lastname)){
-                searchResults.add(contact);
+                add(contact);
             }
         }
 
