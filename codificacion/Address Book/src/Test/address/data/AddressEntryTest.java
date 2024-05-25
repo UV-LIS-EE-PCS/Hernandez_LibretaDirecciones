@@ -1,8 +1,8 @@
-package Test.data;
+package Test.address.data;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
-import Main.data.AddressEntry;
+import Main.address.data.AddressEntry;
 
 public class AddressEntryTest {
     private AddressEntry entry = new AddressEntry();

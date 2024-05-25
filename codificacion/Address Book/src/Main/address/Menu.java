@@ -1,9 +1,10 @@
 package Main.address;
-import Main.data.AddressBook;
-import Main.data.AddressEntry;
 import java.util.Scanner;
 
 import javax.swing.JFileChooser;
+
+import Main.address.data.AddressBook;
+import Main.address.data.AddressEntry;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -117,9 +118,13 @@ public class Menu {
         String lastname = scan.nextLine();
         ArrayList<AddressEntry> results = addressBook.Search(lastname);
 
-        System.out.println(results.size() == 1 ? "Contact Found" : "There were various contacts with the same lastname Showing them all");
-        for(AddressEntry contact : results){
-            System.out.println(contact.toString());
+        if(results.isEmpty()){
+            System.out.println("There is no contact with this lastname");
+        } else {
+            System.out.println(results.size() == 1 ? "Contact Found" : "There were various contacts with the same lastname Showing them all");
+            for(AddressEntry contact : results){
+                System.out.println(contact.toString());
+            }
         }
     }
 

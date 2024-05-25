@@ -1,4 +1,4 @@
-package Main.data;
+package Main.address.data;
 import java.util.ArrayList;
 import java.io.*;
 import java.util.Scanner;

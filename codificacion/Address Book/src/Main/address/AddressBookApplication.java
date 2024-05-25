@@ -1,5 +1,5 @@
 package Main.address;
-import Main.data.AddressBook;
+import Main.address.data.AddressBook;
 
 public class AddressBookApplication {
 
