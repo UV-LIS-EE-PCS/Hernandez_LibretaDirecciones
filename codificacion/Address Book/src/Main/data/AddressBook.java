@@ -1,4 +1,4 @@
-package data;
+package Main.data;
 import java.util.ArrayList;
 import java.io.*;
 import java.util.Scanner;
@@ -43,7 +43,6 @@ public class AddressBook {
           
             int counter = 0;
             while(entryAtribute != null) {
-                System.out.println(entryAtribute);
 
                 entryAtributes[counter] = entryAtribute;
 

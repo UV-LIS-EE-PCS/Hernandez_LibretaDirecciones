@@ -1,6 +1,6 @@
-package address;
-import data.AddressBook;
-import data.AddressEntry;
+package Main.address;
+import Main.data.AddressBook;
+import Main.data.AddressEntry;
 import java.util.Scanner;
 
 import javax.swing.JFileChooser;
