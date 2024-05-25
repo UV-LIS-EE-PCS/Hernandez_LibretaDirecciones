@@ -78,7 +78,7 @@ public class AddressBook {
         for(int i = 0; i < contacts.size();i++){
             AddressEntry contact = contacts.get(i);
             if((contact.getLastname()).startsWith(lastname)){
-                add(contact);
+                searchResults.add(contact);
             }
         }
 
