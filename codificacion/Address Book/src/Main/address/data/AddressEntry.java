@@ -1,5 +1,8 @@
 package Main.address.data;
 
+/**
+ * La clase AddressEntry representa una entrada de dirección que contiene información de contacto.
+ */
 public class AddressEntry{
     private String name;
     private String lastname;
@@ -9,6 +12,20 @@ public class AddressEntry{
     private String postalCode;
     private String phone;
     private String email;
+
+
+
+    /**
+     * Constructor que inicializa una nueva instancia de AddressEntry con los valores proporcionados.
+     * @param name El nombre del contacto.
+     * @param lastname El apellido del contacto.
+     * @param street La calle de la dirección.
+     * @param city La ciudad de la dirección.
+     * @param state El estado de la dirección.
+     * @param postalCode El código postal de la dirección.
+     * @param phone El número de teléfono del contacto.
+     * @param email El correo electrónico del contacto.
+     */
 
     public AddressEntry(String name, String lastname, String street, String city, String state, String postalCode, String phone, String email){
         this.name = name;
@@ -22,6 +39,12 @@ public class AddressEntry{
 
     }
 
+
+
+    /**
+     * Constructor que inicializa una nueva instancia de AddressEntry con valores predeterminados.
+     */
+
     public AddressEntry(){
         this.name = "Jane Doe";
         this.lastname = "Doe";
@@ -32,6 +55,8 @@ public class AddressEntry{
         this.phone = "555-555-555-555";
         this.email = "ride@theciclonet.com";
     }
+
+    // Métodos de acceso
 
     public String getName(){
         return this.name;
@@ -64,6 +89,9 @@ public class AddressEntry{
     public String getEmail() {
         return email;
     }
+
+
+    // Métodos de modificación
 
     public void setName(String name) {
         this.name = name;
@@ -98,6 +126,12 @@ public class AddressEntry{
     }
 
 
+     /**
+     * Compara si dos instancias de AddressEntry son iguales.
+     * @param addressEntry La instancia de AddressEntry con la que se va a comparar.
+     * @return true si las dos instancias son iguales, de lo contrario, false.
+     */
+
     public boolean isSame(AddressEntry addressEntry){
         boolean isNameSame =(this.name).equals(addressEntry.getName());
         boolean isLastnameSame =(this.lastname).equals(addressEntry.getLastname());
@@ -116,6 +150,10 @@ public class AddressEntry{
     }
 
     
+    /**
+     * Devuelve una representación en cadena de la instancia de AddressEntry.
+     * @return Una cadena que representa la instancia de AddressEntry.
+     */
 
     @Override
     public String toString(){

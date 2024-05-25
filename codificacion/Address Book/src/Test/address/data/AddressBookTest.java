@@ -12,10 +12,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.io.File;
 import java.util.ArrayList;
 
+/**
+ * La clase AddressBookTest contiene los casos de prueba para probar la funcionalidad de la clase AddressBook.
+ */
 public class AddressBookTest {
     private AddressBook addressBook = new AddressBook();
     private AddressEntry entry = new AddressEntry();
 
+
+    /**
+     * Prueba el método add de la clase AddressBook.
+     */
     @Test
     public void add(){
         AddressEntry newEntry = new AddressEntry("John", "Doe", "123 Main St", "City", "State", "12345", "123-456-7890", "john@example.com");
@@ -25,6 +32,9 @@ public class AddressBookTest {
 
 
 
+    /**
+     * Prueba el método delete de la clase AddressBook.
+     */
     @Test
     public void testDelete() {
         addressBook.add(entry);
@@ -33,7 +43,12 @@ public class AddressBookTest {
         assertFalse(addressBook.Search("Doe").contains(entry));
     }
 
-     @Test
+
+    /**
+    * Prueba el método addFromFile de la clase AddressBook.
+    */
+
+    @Test
     public void testAddFromFile() {
         File file = new File("src\\Test\\address\\data\\data.txt"); // Create a test file with some entries
         // Assuming you have some test data in the file
@@ -41,6 +56,10 @@ public class AddressBookTest {
         assertEquals(1, addressBook.Search("hernandez").size()); // Assuming there is one entry with last name "Smith" in the test file
     }
 
+
+    /**
+    * Prueba el método search de la clase AddressBook.
+    */
     @Test
     public void testSearch() {
         AddressEntry entry2 = new AddressEntry("Noah", "Doe", "456 Oak St", "Vancouver", "Columbia", "54321", "987-654-3210", "noah@gmail.com");

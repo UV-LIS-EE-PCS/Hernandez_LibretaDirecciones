@@ -9,16 +9,42 @@ import Main.address.data.AddressEntry;
 import java.io.File;
 import java.util.ArrayList;
 
+
+/**
+ * La clase Menu proporciona un menú de opciones para interactuar con el AddressBook esto con el fin de validar las
+ * entradas antes de que lleguen al addressBook ocasionando algun error.
+ */
+
 public class Menu {
     private AddressBook addressBook = new AddressBook();
+
+
+    /**
+     * Obtiene el libro de direcciones asociado con este menú.
+     * @return El libro de direcciones asociado con este menú.
+     */
 
     public AddressBook getAddressBook() {
         return addressBook;
     }
+
+
+
+    /**
+     * Establece el libro de direcciones asociado con este menú.
+     * @param addressBook El libro de direcciones a establecer.
+     */
+
     public void setAddressBook(AddressBook addressBook) {
         this.addressBook = addressBook;
     }
     
+
+    /**
+     * Constructor que inicializa un menú con un libro de direcciones dado.
+     * @param addressBook El libro de direcciones para asociar con el menú.
+     */
+
     public Menu(AddressBook addressBook){
         this.addressBook = addressBook;
     }
@@ -26,6 +52,18 @@ public class Menu {
     Scanner scan = new Scanner(System.in);
     Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Agrega una nueva entrada de dirección al libro de direcciones.
+     * Solicita al usuario los siguiente datos del contacto:
+     * * Nombre
+     * * apellido
+     * * la calle donde vive
+     * * ciudad
+     * * estado
+     * * codigo Postal
+     * * telefono
+     * * email
+     */
     public void add(){
 
         System.out.println("Enter the name: ");
@@ -61,6 +99,10 @@ public class Menu {
             System.out.println("Something has gone wrong Try Later");
         }
     }
+
+    /**
+     * Elimina una entrada de dirección del AddressBook mediante el apellido de este
+     */
     
     public void remove(){
         System.out.println("Enter the lastname of the contact that will be eliminated: ");
@@ -92,6 +134,12 @@ public class Menu {
         System.out.println("Contact deleted succesfully!");
     }
 
+
+    /**
+     * Lee las entradas de dirección desde un archivo y las agrega al AddresBook
+     * Se usa la libreria JFileChooser para abrir una pestaña donde el usuario puede seleccionar de manera grafica
+     * el archivo que requiere usar (posee validacion para que solo admita el formato .txt)
+     */
     public void readFile(){
         JFileChooser filepath = new JFileChooser();
         filepath.showOpenDialog(filepath);
@@ -113,6 +161,12 @@ public class Menu {
         }
     }
 
+
+    /**
+     * Busca una entrada de dirección por apellido en el AddressBook
+     * En caso de no encontrar imprime que no existe un contacto con ese apellido
+     */
+
     public void find(){
         System.out.println("Enter the lastname of the contact you wanna search: ");
         String lastname = scan.nextLine();
@@ -128,11 +182,19 @@ public class Menu {
         }
     }
 
+
+    /**
+     * Muestra todas las entradas de dirección en el libro de direcciones.
+     */
+
     public void show(){
         System.out.println("Showing all the contacts in this list");
         addressBook.show();
     }
 
+    /**
+     * Muestra el menú de opciones y permite al usuario interactuar con el libro de direcciones.
+     */
     public void displayMenu(){
         boolean active = true;
         while(active){
