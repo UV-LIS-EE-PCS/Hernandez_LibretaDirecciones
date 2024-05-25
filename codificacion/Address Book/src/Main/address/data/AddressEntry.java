@@ -2,6 +2,7 @@ package Main.address.data;
 
 /**
  * La clase AddressEntry representa una entrada de dirección que contiene información de contacto.
+ * @author Sebati HM
  */
 public class AddressEntry{
     private String name;

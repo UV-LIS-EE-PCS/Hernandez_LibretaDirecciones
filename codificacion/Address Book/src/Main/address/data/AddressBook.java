@@ -5,6 +5,7 @@ import java.util.Scanner;
     /**
      * La clase AddressBook representa un libro de direcciones que contiene una lista de contactos.
      * Permite agregar, eliminar, buscar y mostrar contactos.
+     * @author Sebati HM
      */
 
 public class AddressBook {
