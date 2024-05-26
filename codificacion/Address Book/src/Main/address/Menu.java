@@ -67,28 +67,28 @@ public class Menu {
      */
     public void add(){
 
-        System.out.println("Enter the name: ");
+        System.out.print("Enter the name: ");
         String name = scan.nextLine();
 
-        System.out.println("Enter the lastname: ");
+        System.out.print("Enter the lastname: ");
         String lastname = scan.nextLine();
         
-        System.out.println("Enter the street: ");
+        System.out.print("Enter the street: ");
         String street = scan.nextLine();
         
-        System.out.println("Enter the city: ");
+        System.out.print("Enter the city: ");
         String city = scan.nextLine();
         
-        System.out.println("Enter the state: ");
+        System.out.print("Enter the state: ");
         String state = scan.nextLine();
         
-        System.out.println("Enter the postalCode: ");
+        System.out.print("Enter the postalCode: ");
         String postalCode = scan.nextLine();
         
-        System.out.println("Enter the phone: ");
+        System.out.print("Enter the phone: ");
         String phone = scan.nextLine();
         
-        System.out.println("Enter the email: ");
+        System.out.print("Enter the email: ");
         String email = scan.nextLine();
 
         System.out.println("Adding to the Address Book ...");
@@ -110,7 +110,7 @@ public class Menu {
         String lastname = scan.nextLine();
         ArrayList<AddressEntry> searchResults = addressBook.Search(lastname);
         int i = 1;
-        
+
         for(AddressEntry contact : searchResults){
             System.out.println("=====================================================================");
             System.out.println(i);
@@ -136,7 +136,7 @@ public class Menu {
         AddressEntry contact = searchResults.get(choosenContact);
         System.out.println("Deleting contact.....");
         addressBook.delete(contact);
-        System.out.println("Contact deleted succesfully!");
+        System.out.println("Contact deleted succesfully!\n");
     }
 
 
@@ -173,7 +173,7 @@ public class Menu {
      */
 
     public void find(){
-        System.out.println("Enter the lastname of the contact you wanna search: ");
+        System.out.print("Enter the lastname of the contact you wanna search: ");
         String lastname = scan.nextLine();
         ArrayList<AddressEntry> results = addressBook.Search(lastname);
 

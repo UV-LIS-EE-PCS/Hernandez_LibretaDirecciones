@@ -81,6 +81,7 @@ public class AddressBook {
                         contact.setEmail(entryAtributes[7]);
 
                         add(contact);
+                        counter = -1;
                     }
 
                     entryAtribute = readerLines.readLine();
