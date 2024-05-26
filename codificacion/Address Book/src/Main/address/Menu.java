@@ -109,9 +109,13 @@ public class Menu {
         System.out.println("Enter the lastname of the contact that will be eliminated: ");
         String lastname = scan.nextLine();
         ArrayList<AddressEntry> searchResults = addressBook.Search(lastname);
-
+        int i = 1;
+        
         for(AddressEntry contact : searchResults){
+            System.out.println("=====================================================================");
+            System.out.println(i);
             System.out.println(contact.toString());
+            i++;
         }
 
 
